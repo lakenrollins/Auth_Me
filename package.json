@@ -1,5 +1,5 @@
 {
-  "name": "new_auth_me",
+  "name": "auth_me",
   "version": "1.0.0",
   "description": "Before using the information in the body of the request, it's good practice to validate the information.",
   "main": "index.js",
@@ -13,20 +13,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wolf-domination/New_Auth_Me.git"
+    "url": "git+https://github.com/lakenrollins/Auth_Me.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/wolf-domination/New_Auth_Me/issues"
+    "url": "https://github.com/lakenrollins/Auth_Me/issues"
   },
-  "homepage": "https://github.com/wolf-domination/New_Auth_Me#readme",
+  "homepage": "https://github.com/lakenrollins/Auth_Me#readme",
   "dependencies": {
     "js-cookie": "^3.0.5",
-    "pg": "^8.16.0",
-    "pg-hstore": "^2.3.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-icons": "^5.5.0",
@@ -34,10 +32,6 @@
     "react-router-dom": "^7.6.0",
     "redux": "^5.0.1",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^3.1.0",
-    "sequelize": "^6.37.7",
-    "sequelize-cli": "^6.6.3",
-    "sqlite3": "^5.1.7"
-  },
-  "devDependencies": {}
+    "redux-thunk": "^3.1.0"
+  }
 }

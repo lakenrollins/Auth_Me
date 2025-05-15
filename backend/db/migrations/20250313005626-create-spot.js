@@ -1,7 +1,3 @@
-
-
-
-
 'use strict';
 let options = {};
 if (process.env.NODE_ENV === 'production') {
@@ -12,76 +8,133 @@ module.exports = {
     const options = {};
     if (process.env.NODE_ENV === 'production') {
       options.schema = process.env.SCHEMA;
-    }
-
-    await queryInterface.createTable('Spots', {
-      id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true
-      },
-      ownerId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: { model: 'Users', key: 'id' },
-        onDelete: 'CASCADE'
-      },
-      address: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      city: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      state: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      country: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      lat: {
-        type: Sequelize.DECIMAL(10, 7),
-        allowNull: false
-      },
-      lng: {
-        type: Sequelize.DECIMAL(10, 7),
-        allowNull: false
-      },
-      name: {
-        type: Sequelize.STRING(50),
-        allowNull: false
-      },
-      description: {
-        type: Sequelize.TEXT,
-        allowNull: false
-      },
-      price: {
-        type: Sequelize.DECIMAL(10, 2),
-        allowNull: false
-      },
-      createdAt: {
-        type: Sequelize.DATE,
-        allowNull: false,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
-      },
-      updatedAt: {
-        type: Sequelize.DATE,
-        allowNull: false,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
-      }
-    }, options);
-  },
-
-  down: async (queryInterface, Sequelize) => {
-    const options = {};
-    if (process.env.NODE_ENV === 'production') {
-      options.schema = process.env.SCHEMA;
-    }
-
-    await queryInterface.dropTable('Spots', options);
-  }
-};
+    }},
+},
+///1///
+await queryInterface.createTable('Spots', [{
+  id:2,
+  ownerId: 2,
+  address: '111 West 57th Street',
+  city: 'Manhattan New York',
+  state: 'NY',
+  country: 'USA',
+  lat: 22.5556,
+  lng:-22.5556,
+  name: 'Penthouse',
+  description: 'Billionaire Row Apartment for rent',
+  price: 600.00,
+  createdAt: new Date(),
+  updatedAt: new Date(),
+}])
+ ///2///
+await queryInterface.bulkInsert('Spots', [{
+  id:2,
+  ownerId: 2,
+  address: '111 West 57th Street',
+  city: 'Manhattan New York',
+  state: 'NY',
+  country: 'USA',
+  lat: 22.5556,
+  lng:-22.5556,
+  name: 'Penthouse',
+  description: 'Billionaire Row Apartment for rent',
+  price: 600.00,
+  createdAt: new Date(),
+  updatedAt: new Date(),
+}])
+///3///
+await queryInterface.bulkInsert('Spots', [{
+  id:2,
+  ownerId: 2,
+  address: '111 West 57th Street',
+  city: 'Manhattan New York',
+  state: 'NY',
+  country: 'USA',
+  lat: 22.5556,
+  lng:-22.5556,
+  name: 'Penthouse',
+  description: 'Billionaire Row Apartment for rent',
+  price: 600.00,
+  createdAt: new Date(),
+  updatedAt: new Date(),
+}])
+///4///
+await queryInterface.bulkInsert('Spots', [{
+  id:2,
+  ownerId: 2,
+  address: '111 West 57th Street',
+  city: 'Manhattan New York',
+  state: 'NY',
+  country: 'USA',
+  lat: 22.5556,
+  lng:-22.5556,
+  name: 'Penthouse',
+  description: 'Billionaire Row Apartment for rent',
+  price: 600.00,
+  createdAt: new Date(),
+  updatedAt: new Date(),
+}])
+///5///
+await queryInterface.bulkInsert('Spots', [{
+  id:2,
+  ownerId: 2,
+  address: '111 West 57th Street',
+  city: 'Manhattan New York',
+  state: 'NY',
+  country: 'USA',
+  lat: 22.5556,
+  lng:-22.5556,
+  name: 'Penthouse',
+  description: 'Billionaire Row Apartment for rent',
+  price: 600.00,
+  createdAt: new Date(),
+  updatedAt: new Date(),
+}])
+///6///
+await queryInterface.bulkInsert('Spots', [{
+  id:2,
+  ownerId: 2,
+  address: '111 West 57th Street',
+  city: 'Manhattan New York',
+  state: 'NY',
+  country: 'USA',
+  lat: 22.5556,
+  lng:-22.5556,
+  name: 'Penthouse',
+  description: 'Billionaire Row Apartment for rent',
+  price: 600.00,
+  createdAt: new Date(),
+  updatedAt: new Date(),
+}])
+///7///
+await queryInterface.bulkInsert('Spots', [{
+  id:2,
+  ownerId: 2,
+  address: '111 West 57th Street',
+  city: 'Manhattan New York',
+  state: 'NY',
+  country: 'USA',
+  lat: 22.5556,
+  lng:-22.5556,
+  name: 'Penthouse',
+  description: 'Billionaire Row Apartment for rent',
+  price: 600.00,
+  createdAt: new Date(),
+  updatedAt: new Date(),
+}])
+///8///
+await queryInterface.bulkInsert('Spots', [{
+  id:2,
+  ownerId: 2,
+  address: '111 West 57th Street',
+  city: 'Manhattan New York',
+  state: 'NY',
+  country: 'USA',
+  lat: 22.5556,
+  lng:-22.5556,
+  name: 'Penthouse',
+  description: 'Billionaire Row Apartment for rent',
+  price: 600.00,
+  createdAt: new Date(),
+  updatedAt: new Date(),
+}])
