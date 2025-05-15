@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/lakenrollins/Auth_Me#readme",
   "dependencies": {
+    "express-validator": "^7.2.1",
     "js-cookie": "^3.0.5",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -33,5 +34,6 @@
     "redux": "^5.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^3.1.0"
-  }
+  },
+  "devDependencies": {}
 }
