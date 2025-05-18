@@ -1,64 +1,62 @@
-'use strict';
-
 module.exports = {
   async up(queryInterface, Sequelize) {
     const options = process.env.NODE_ENV === 'production' ? { schema: process.env.SCHEMA } : {};
 
-    // Find demo user ID using raw SQL
+    // Retrieve the demo user's ID
     const demoUserId = await queryInterface.rawSelect(
-      'Users', // Table name
-      { where: { email: 'demo@user.io' } }, // Find demo user by email
-      ['id'] // Only select the ID column
+      'Users',
+      { where: { email: 'demo@user.io' } },
+      ['id']
     );
 
     if (!demoUserId) {
-      console.log("Demo user not found, skipping spots seeding.");
+      console.log("Demo user not found, skipping spot seeding.");
       return;
     }
 
-    // Insert sample spots
+    // Insert new sample spots with different data
     await queryInterface.bulkInsert(
       'Spots',
       [
         {
           ownerId: demoUserId,
-          address: '123 Disney Lane',
-          city: 'San Francisco',
-          state: 'California',
-          country: 'United States of America',
-          lat: 37.7645358,
-          lng: -122.4730327,
-          name: 'App Academy',
-          description: 'Place where web developers are created',
-          price: 123,
-          createdAt: new Date(),
-          updatedAt: new Date(),
-        },
-        {
-          ownerId: demoUserId,
-          address: '456 Sunset Blvd',
-          city: 'Los Angeles',
-          state: 'California',
-          country: 'United States of America',
-          lat: 34.0522,
-          lng: -118.2437,
-          name: 'Sunny Retreat',
-          description: 'Beautiful beachside getaway',
-          price: 200,
-          createdAt: new Date(),
-          updatedAt: new Date(),
-        },
-        {
-          ownerId: demoUserId,
-          address: '789 Mountain Rd',
+          address: '555 Mountain Road',
           city: 'Denver',
           state: 'Colorado',
-          country: 'United States of America',
+          country: 'USA',
           lat: 39.7392,
           lng: -104.9903,
-          name: 'Mountain View',
-          description: 'Breathtaking views of the Rockies',
-          price: 175,
+          name: 'Mountain Retreat',
+          description: 'A peaceful getaway in the Rockies.',
+          price: 220,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          ownerId: demoUserId,
+          address: '789 Lakeview Ave',
+          city: 'Madison',
+          state: 'Wisconsin',
+          country: 'USA',
+          lat: 43.0731,
+          lng: -89.4012,
+          name: 'Lakeside Haven',
+          description: 'Charming cottage with lake views.',
+          price: 160,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          ownerId: demoUserId,
+          address: '404 Downtown Blvd',
+          city: 'Austin',
+          state: 'Texas',
+          country: 'USA',
+          lat: 30.2672,
+          lng: -97.7431,
+          name: 'City Lights Loft',
+          description: 'Trendy loft in the heart of the city.',
+          price: 275,
           createdAt: new Date(),
           updatedAt: new Date(),
         }
@@ -66,7 +64,7 @@ module.exports = {
       options
     );
 
-    // Fetch inserted spot IDs (workaround for missing "returning" in SQLite)
+    // Get the IDs of the inserted spots
     const spots = await queryInterface.sequelize.query(
       'SELECT id FROM "Spots" WHERE "ownerId" = :ownerId',
       {
@@ -76,22 +74,22 @@ module.exports = {
     );
 
     if (!spots.length) {
-      console.log("No spots were inserted, skipping spot images.");
+      console.log("No spots inserted, skipping spot images.");
       return;
     }
 
-    // Map spot IDs dynamically
-    const [spot1, spot2, spot3] = spots;
+    // Assign spot IDs
+    const [spotA, spotB, spotC] = spots;
 
-    // Insert sample spot images
+    // Insert new sample spot images with different data
     await queryInterface.bulkInsert(
       'SpotImages',
-      [
-        { spotId: spot1.id, url: 'https://example.com/preview1.jpg', preview: true, createdAt: new Date(), updatedAt: new Date() },
-        { spotId: spot1.id, url: 'https://example.com/non-preview1.jpg', preview: false, createdAt: new Date(), updatedAt: new Date() },
-        { spotId: spot2.id, url: 'https://example.com/preview2.jpg', preview: true, createdAt: new Date(), updatedAt: new Date() },
-        { spotId: spot3.id, url: 'https://example.com/preview3.jpg', preview: true, createdAt: new Date(), updatedAt: new Date() },
-      ],
+  [
+    { spotId: spotA.id, url: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80', preview: true, createdAt: new Date(), updatedAt: new Date() }, // Mountain Retreat
+    { spotId: spotA.id, url: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80', preview: false, createdAt: new Date(), updatedAt: new Date() },
+    { spotId: spotB.id, url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80', preview: true, createdAt: new Date(), updatedAt: new Date() }, // Lakeside Haven
+    { spotId: spotC.id, url: 'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=800&q=80', preview: true, createdAt: new Date(), updatedAt: new Date() }, // City Lights Loft
+  ],
       options
     );
   },

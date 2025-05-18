@@ -1,6 +1,8 @@
 
-// backend/config/config.js
 
+
+/*
+// backend/config/config.js
 require('dotenv').config();
 
 module.exports = {
@@ -30,4 +32,4 @@ module.exports = {
     seederStorage: 'sequelize',
   }
 };
-
+*/
